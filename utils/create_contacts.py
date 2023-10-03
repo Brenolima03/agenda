@@ -11,7 +11,7 @@ DJANGO_BASE_DIR = Path(__file__).parent.parent
 NUMBER_OF_OBJECTS = 1000
 
 sys.path.append(str(DJANGO_BASE_DIR))
-os.environ['DJANGO_SETTINGS_MODULE'] = 'core.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
 settings.USE_TZ = False
 
 django.setup()
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     Contact.objects.all().delete()
     Category.objects.all().delete()
 
-    fake = faker.Faker('en')
+    fake = faker.Faker('en-US')
     categories = ['Friends', 'Family', 'Acquaintances']
 
     django_categories = [Category(name=name) for name in categories]

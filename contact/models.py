@@ -1,16 +1,15 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import User
 
-# id (primary key - automatic)
+# id (primary key - automático)
 # first_name (string), last_name (string), phone (string)
 # email (email), created_date (date), description (text)
-# category (foreign key), show (boolean), picture (image)
+# category (foreign key), show (boolean), picture (imagem)
 # owner (foreign key)
 
 
 class Category(models.Model):
-    # Makes the element in the admin page use a custom verbose name.
     class Meta:
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'

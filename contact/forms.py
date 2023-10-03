@@ -9,11 +9,11 @@ class ContactForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={
                 'class': 'classe-a classe-b',
-                # 'placeholder': 'Here came from init',
+                'placeholder': 'Here came from init',
             }
         ),
         label='First name',
-        help_text='help-text for the user',
+        help_text='Help text',
     )
 
     def __init__(self, *args, **kwargs):
@@ -34,7 +34,7 @@ class ContactForm(forms.ModelForm):
         #     'first_name': forms.TextInput(
         #         attrs={
         #             'class': 'classe-a classe-b',
-        #             'placeholder': 'Write here',
+        #             'placeholder': 'Write here!',
         #         }
         #     )
         # }
@@ -46,7 +46,7 @@ class ContactForm(forms.ModelForm):
 
         if first_name == last_name:
             msg = ValidationError(
-                "The last name can't be the same as the first name",
+                'The second name cannot be the same as the first one.',
                 code='invalid'
             )
             self.add_error('first_name', msg)
@@ -57,45 +57,13 @@ class ContactForm(forms.ModelForm):
     def clean_first_name(self):
         first_name = self.cleaned_data.get('first_name')
 
-        if any(char.isdigit() for char in first_name):
-            self.add_error(
-                'first_name',
-                ValidationError(
-                    "Don't insert numbers in a name",
-                    code='invalid'
-                )
-            )
-
         if first_name == 'ABC':
             self.add_error(
                 'first_name',
                 ValidationError(
-                    "A name can't be 'ABC'",
+                    'Came from add_error',
                     code='invalid'
                 )
             )
 
         return first_name
-
-    def clean_last_name(self):
-        last_name = self.cleaned_data.get('last_name')
-
-        if any(char.isdigit() for char in last_name):
-            self.add_error(
-                'last_name',
-                ValidationError(
-                    "Don't insert numbers in a name",
-                    code='invalid'
-                )
-            )
-
-        if last_name == 'ABC':
-            self.add_error(
-                'last_name',
-                ValidationError(
-                    "A name can't be 'ABC'",
-                    code='invalid'
-                )
-            )
-
-        return last_name
