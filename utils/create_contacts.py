@@ -24,8 +24,8 @@ if __name__ == '__main__':
     Contact.objects.all().delete()
     Category.objects.all().delete()
 
-    fake = faker.Faker('pt_BR')
-    categories = ['Amigos', 'Família', 'Conhecidos']
+    fake = faker.Faker('en_US')
+    categories = ['Friends', 'Family', 'Work']
 
     django_categories = [Category(name=name) for name in categories]
 
