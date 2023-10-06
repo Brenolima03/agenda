@@ -15,7 +15,7 @@
   "terminal.integrated.fontFamily": "",
   "editor.fontLigatures": false,
   "[python]": {
-    "editor.defaultFormatter": "ms-python.vscode-pylance",
+    "editor.defaultFormatter": "ms-python.python",
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.formatOnSave": true,
@@ -38,5 +38,5 @@
   },
   "python.defaultInterpreterPath": "./venv/bin/python",
   "python.analysis.typeCheckingMode": "basic",
-  "cSpell.enabled": true,
+  "cSpell.enabled": true
 }
